@@ -24,14 +24,21 @@ public class Main {
             Scanner scanner = new Scanner(System.in);
 
             while(true){
-                System.out.println("Skriv ditt meddelande");
+                System.out.println("Vill du hämta ut information eller skicka in information?");
                 String message = scanner.nextLine();
-                bufferedWriter.write(message);
-                bufferedWriter.newLine();
-                bufferedWriter.flush();
 
-                System.out.println(bufferedReader.readLine());
+                if (message.equals("hämta ut")){
+                    System.out.println("Vilken spelare vill du hämta info om?");
+                    System.out.println("Drogba , Zidane , Iniesta");
+                    String player = scanner.nextLine();
 
+                    if (player.equalsIgnoreCase("Drogba") || player.equalsIgnoreCase("Zidane") || player.equalsIgnoreCase("Iniesta")) {
+                        bufferedWriter.write(player);
+                        bufferedWriter.newLine();
+                        bufferedWriter.flush();
+                        System.out.println(bufferedReader.readLine());
+                    }
+                }
                 if (message.equalsIgnoreCase("quit")){
                     break;
                 }
